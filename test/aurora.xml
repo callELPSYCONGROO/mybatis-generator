@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE generatorConfiguration
-        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
-        "mybatis-generator-config_1_0.dtd">
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
+
+    <!-- 驱动包路径，最好是用绝对路径 -->
+    <!--<classPathEntry location="D:\Repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar"/>-->
+
     <context id="Tables" targetRuntime="MyBatis3" defaultModelType="flat" >
         
         <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
@@ -56,5 +58,6 @@
             <property name="useActualColumnNames" value="true" />
             <generatedKey column="mpId" sqlStatement="mysql" identity="true"/>
         </table>
+
     </context>
 </generatorConfiguration>
