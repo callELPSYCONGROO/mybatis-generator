@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+	  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+	  "mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!--   <classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" /> -->
+
+	<!-- <context id="Tables" targetRuntime="MyBatis3Simple" defaultModelType="flat" > -->
+    <context id="Tables" targetRuntime="MyBatis3" defaultModelType="flat" >
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+		<plugin type="org.dev.mybatis.generator.PaginationPlugin" />
+
+		<!-- 去掉生成代码中的注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+			<property name="suppressDate" value="true"/>
+		</commentGenerator>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.1.15:3306/aisp_down"
+			userId="mysqldba"
+			password="Mysql@dba123">
+		</jdbcConnection>
+		
+		<javaTypeResolver >
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.rzqc.aisp.domain.business" targetProject="E:\GeneratorCode">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="sql-mapper"  targetProject="E:\GeneratorCode" >
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.rzqc.aisp.mapper.business"  targetProject="E:\GeneratorCode">
+			<property name="enableSubPackages" value="true" />
+			<property name="isMergeable" value="false"/>
+		</javaClientGenerator>
+		
+		<!-- 
+		<table tableName="t_provinces_area" domainObjectName="ProvincesArea" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="ID" sqlStatement="mysql" identity="true"/>
+		</table>
+		
+		<table tableName="t_deliver_adress" domainObjectName="DeliverAdress" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="adressID" sqlStatement="mysql" identity="true"/>
+		</table>
+		
+		
+		<table tableName="t_allocation" domainObjectName="Allocation" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="allocationID" sqlStatement="mysql" identity="true"/>
+		</table>
+		<table tableName="t_allocation_history" domainObjectName="AllocationHistory" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="allocationID" sqlStatement="mysql" identity="true"/>
+		</table>
+		<table tableName="t_clsp_consume" domainObjectName="ClspConsume" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+		</table>
+		-->
+		
+		<table tableName="ccic_jingyou_car_model" domainObjectName="JingyouCarModel" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+		</table>
+		
+		<table tableName="ccic_quote_proposal" domainObjectName="QuoteProposal" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="ID" sqlStatement="mysql" identity="true"/>
+			<columnOverride column="calcRequest" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
+			<columnOverride column="calcResponse" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
+			<columnOverride column="auditRequest" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
+			<columnOverride column="auditResponse" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
+			<columnOverride column="statusResponse" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
+			<columnOverride column="effResponse" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
+		</table>
+		
+		<!-- 
+		
+		<table tableName="ccic_car_model_jingyou" domainObjectName="CarModelJingyou" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+		</table>
+		
+		<table tableName="ccic_car_model_request" domainObjectName="CarModelRequest" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+			<columnOverride column="requestContent" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
+			<columnOverride column="responseContent" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
+		</table>
+		
+		
+		<table tableName="ccic_pre_quote_request" domainObjectName="PreQuoteRequest" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+			<columnOverride column="requestContent" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
+			<columnOverride column="responseContent" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>		
+		</table>
+		
+		<table tableName="ccic_pre_quote_request_car" domainObjectName="PreQuoteRequestCar" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+		</table>
+		
+		<table tableName="ccic_pre_quote_kind" domainObjectName="PreQuoteKind" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+		</table>
+		
+		<table tableName="t_owner_history" domainObjectName="OwnerHistory" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="ownerID" sqlStatement="mysql" identity="true"/>
+		</table>
+		
+		<table tableName="t_allocation" domainObjectName="Allocation" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="allocationID" sqlStatement="mysql" identity="true"/>
+		</table>
+		<table tableName="t_allocation_history" domainObjectName="AllocationHistory" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="allocationID" sqlStatement="mysql" identity="true"/>
+		</table>
+		<table tableName="t_policy_info" domainObjectName="PolicyInfo" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="policyID" sqlStatement="mysql" identity="true"/>
+		</table>
+		<table tableName="t_policy_info_history" domainObjectName="PolicyInfoHistory" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		
+		<table tableName="t_dictionary_item" domainObjectName="DictionaryItem" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="itemID" sqlStatement="mysql" identity="true"/>
+		</table>
+		
+		
+		<table tableName="t_policy_record" domainObjectName="PolicyRecord" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="recordID" sqlStatement="mysql" identity="true"/>
+		</table>
+		<table tableName="t_saleroom" domainObjectName="Saleroom" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="ID" sqlStatement="mysql" identity="true"/>
+		</table>
+		
+		<table tableName="t_gift" domainObjectName="Gift" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="giftID" sqlStatement="mysql" identity="true"/>
+		</table>
+		<table tableName="t_gift_record" domainObjectName="GiftRecord" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="recordID" sqlStatement="mysql" identity="true"/>
+		</table>
+		
+		<table tableName="t_policy_gift" domainObjectName="PolicyGift" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="recordID" sqlStatement="mysql" identity="true"/>
+		</table>
+		<table tableName="tbl_insure_categroy_item" domainObjectName="InsureCategroyItem" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+		</table>
+		
+		<table tableName="tbl_insure_company" domainObjectName="InsureCompany" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+		</table>
+		
+		<table tableName="tbl_insuer" domainObjectName="Insuer" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="PolicyHolderID" sqlStatement="mysql" identity="true"/>
+		</table>
+		
+		<table tableName="tbl_insurance_para" domainObjectName="InsurancePara" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		
+		<table tableName="tbl_insurance_order" domainObjectName="InsuranceOrder" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="tbl_insurance_para" domainObjectName="InsurancePara" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		
+		
+		<table tableName="ta_access_page" domainObjectName="ActAccessPage" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="ta_active_retained" domainObjectName="ActActiveRetained" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="ta_appbar_function" domainObjectName="ActAppharFunction" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="ta_auth_vin" domainObjectName="ActAuthVin" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="ta_brisk_user" domainObjectName="ActBriskUser" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="ta_install_retained" domainObjectName="ActInstallRetained" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="ta_reservation_service" domainObjectName="ActReservationService" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="ta_skip_function" domainObjectName="ActSkipFunction" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="ta_skip_mall" domainObjectName="ActSkipMall" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="ta_us_time" domainObjectName="ActUsTime" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="ta_usage_function" domainObjectName="ActUsageFuntion" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="ta_user_register" domainObjectName="ActUserRegister" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="ta_user_retained" domainObjectName="ActUserRetained" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="ID" sqlStatement="mysql" identity="truee"/>
+		</table>
+		
+		
+		
+		
+		<table tableName="tbl_member_info" domainObjectName="MemberInfo" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		
+		<table tableName="tbl_member_infostutas" domainObjectName="MemberInfoStutas" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		
+		<table tableName="tbl_user_auth" domainObjectName="UserAuth" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		
+		<table tableName="tbl_user_auth" domainObjectName="UserAuth" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		
+		<table tableName="tbl_fault_record" domainObjectName="FaultRecord" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="ID" sqlStatement="mysql" identity="true"/>
+			<columnOverride column="intro" property="intro" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
+		</table>
+		
+		<table tableName="tbl_maintain_rescue" domainObjectName="MaintainRescue" enableCountByCriteria="true" enableUpdateByCriteria="true" enableDeleteByCriteria="true" enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="ID" sqlStatement="mysql" identity="true"/>
+		</table>
+		 -->
+	</context>
+</generatorConfiguration>
