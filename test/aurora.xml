@@ -52,11 +52,20 @@
         <!-- 配置对应表与映射的实体类 -->
         <table tableName="t_member_photo_album"
                domainObjectName="MemberPhotoAlbum" enableSelectByPrimaryKey="true"
-               enableDeleteByPrimaryKey="false" enableCountByCriteria="false"
-               enableUpdateByCriteria="false" enableDeleteByCriteria="false"
-               enableSelectByCriteria="false" selectByCriteriaQueryId="true">
+               enableDeleteByPrimaryKey="true" enableCountByCriteria="false"
+               enableUpdateByCriteria="true" enableDeleteByCriteria="true"
+               enableSelectByCriteria="true" selectByCriteriaQueryId="true">
             <property name="useActualColumnNames" value="true" />
             <generatedKey column="mpaId" sqlStatement="mysql" identity="true"/>
+        </table>
+
+        <table tableName="t_member_photo_album_picture"
+               domainObjectName="MemberPhotoAlbumPicture" enableSelectByPrimaryKey="true"
+               enableDeleteByPrimaryKey="true" enableCountByCriteria="false"
+               enableUpdateByCriteria="true" enableDeleteByCriteria="true"
+               enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="mpapId" sqlStatement="mysql" identity="true"/>
         </table>
 
     </context>
