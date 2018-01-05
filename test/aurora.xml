@@ -44,19 +44,19 @@
         </sqlMapGenerator>
 
         <!-- 配置mapper.java文件路径，targetProject 文件目录，targetPackage 文件所在包 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.wuhenjian.aurora.db.dao.sql"  targetProject="D:\AURORA">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.wuhenjian.aurora.db.mapper.sql"  targetProject="D:\AURORA">
             <property name="enableSubPackages" value="true" />
             <property name="isMergeable" value="false"/>
         </javaClientGenerator>
 
         <!-- 配置对应表与映射的实体类 -->
-        <table tableName="t_member_push"
-               domainObjectName="MemberPush" enableSelectByPrimaryKey="true"
-               enableDeleteByPrimaryKey="true" enableCountByCriteria="false"
-               enableUpdateByCriteria="true" enableDeleteByCriteria="false"
-               enableSelectByCriteria="true" selectByCriteriaQueryId="true">
+        <table tableName="t_member_photo_album"
+               domainObjectName="MemberPhotoAlbum" enableSelectByPrimaryKey="true"
+               enableDeleteByPrimaryKey="false" enableCountByCriteria="false"
+               enableUpdateByCriteria="false" enableDeleteByCriteria="false"
+               enableSelectByCriteria="false" selectByCriteriaQueryId="true">
             <property name="useActualColumnNames" value="true" />
-            <generatedKey column="mpId" sqlStatement="mysql" identity="true"/>
+            <generatedKey column="mpaId" sqlStatement="mysql" identity="true"/>
         </table>
 
     </context>
