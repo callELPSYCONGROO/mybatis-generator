@@ -39,7 +39,7 @@
         </javaModelGenerator>
 
         <!-- 配置mapper.xml文件路径，targetProject 文件目录，targetPackage 文件所在包 -->
-        <sqlMapGenerator targetPackage="xmlmapper"  targetProject="D:\AURORA" >
+        <sqlMapGenerator targetPackage="com.wuhenjian.aurora.db.mapper.sql.xml" targetProject="D:\AURORA" >
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
@@ -50,22 +50,13 @@
         </javaClientGenerator>
 
         <!-- 配置对应表与映射的实体类 -->
-        <table tableName="t_member_photo_album"
-               domainObjectName="MemberPhotoAlbum" enableSelectByPrimaryKey="true"
+        <table tableName="t_php_project"
+               domainObjectName="PhpProject" enableSelectByPrimaryKey="true"
                enableDeleteByPrimaryKey="true" enableCountByCriteria="false"
                enableUpdateByCriteria="true" enableDeleteByCriteria="true"
                enableSelectByCriteria="true" selectByCriteriaQueryId="true">
             <property name="useActualColumnNames" value="true" />
             <generatedKey column="mpaId" sqlStatement="mysql" identity="true"/>
-        </table>
-
-        <table tableName="t_member_photo_album_picture"
-               domainObjectName="MemberPhotoAlbumPicture" enableSelectByPrimaryKey="true"
-               enableDeleteByPrimaryKey="true" enableCountByCriteria="false"
-               enableUpdateByCriteria="true" enableDeleteByCriteria="true"
-               enableSelectByCriteria="true" selectByCriteriaQueryId="true">
-            <property name="useActualColumnNames" value="true" />
-            <generatedKey column="mpapId" sqlStatement="mysql" identity="true"/>
         </table>
 
     </context>
