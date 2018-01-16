@@ -44,7 +44,7 @@
         </sqlMapGenerator>
 
         <!-- 配置mapper.java文件路径，targetProject 文件目录，targetPackage 文件所在包 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.wuhenjian.aurora.db.mapper.sql"  targetProject="D:\AURORA">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="xmlmapper"  targetProject="D:\AURORA">
             <property name="enableSubPackages" value="true" />
             <property name="isMergeable" value="false"/>
         </javaClientGenerator>
