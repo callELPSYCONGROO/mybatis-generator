@@ -33,30 +33,30 @@
         </javaTypeResolver>
 
         <!--  配置实体对象路径，targetProject 文件目录，targetPackage 文件所在包 -->
-        <javaModelGenerator targetPackage="com.wuhenjian.aurora.utils.entity.dao" targetProject="D:\AURORA">
+        <javaModelGenerator targetPackage="com.wuhenjian.aurora.utils.entity.dao" targetProject="E:\AURORA">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
         <!-- 配置mapper.xml文件路径，targetProject 文件目录，targetPackage 文件所在包 -->
-        <sqlMapGenerator targetPackage="XMLMAPPER" targetProject="D:\AURORA" >
+        <sqlMapGenerator targetPackage="XMLMAPPER" targetProject="E:\AURORA" >
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
         <!-- 配置mapper.java文件路径，targetProject 文件目录，targetPackage 文件所在包 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.wuhenjian.aurora.db.mapper.sql"  targetProject="D:\AURORA">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.wuhenjian.aurora.db.mapper.sql"  targetProject="E:\AURORA">
             <property name="enableSubPackages" value="true" />
             <property name="isMergeable" value="false"/>
         </javaClientGenerator>
 
         <!-- 配置对应表与映射的实体类 -->
-        <table tableName="t_php_project"
-               domainObjectName="PhpProject" enableSelectByPrimaryKey="true"
+        <table tableName="t_sys_group"
+               domainObjectName="SysGroup" enableSelectByPrimaryKey="true"
                enableDeleteByPrimaryKey="true" enableCountByCriteria="false"
                enableUpdateByCriteria="true" enableDeleteByCriteria="true"
                enableSelectByCriteria="true" selectByCriteriaQueryId="true">
             <property name="useActualColumnNames" value="true" />
-            <generatedKey column="mpaId" sqlStatement="mysql" identity="true"/>
+            <generatedKey column="sgId" sqlStatement="mysql" identity="true"/>
         </table>
 
     </context>
